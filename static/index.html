@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <title>RecordFlow · Record Processing</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="RecordFlow home">
+          <span class="brand-mark">R</span>
+          <span>RecordFlow</span>
+        </a>
+        <div class="topbar-actions">
+          <span class="local-label"><i></i> Local demo</span>
+          <button class="button button-light" id="reset-demo">Reset demo</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div>
+            <p class="eyebrow">RECORD OPERATIONS</p>
+            <h1>Automated record processing</h1>
+            <p class="subtitle">Process sample records, then review only the exceptions.</p>
+          </div>
+          <button class="button button-primary" id="run-processing">Process new records</button>
+        </section>
+
+        <section class="steps" aria-label="Workflow">
+          <span><b>1</b> Records received</span>
+          <i></i>
+          <span><b>2</b> Rules applied</span>
+          <i></i>
+          <span><b>3</b> Review exceptions</span>
+        </section>
+
+        <div class="processing-note hidden" id="processing-note" role="status">
+          <span class="spinner"></span><span id="processing-message">Processing records…</span>
+        </div>
+        <div class="toast hidden" id="toast" role="status"></div>
+
+        <section class="summary" id="summary" aria-label="Record totals"></section>
+
+        <section class="panel records-panel">
+          <header class="panel-heading">
+            <div>
+              <h2>Records</h2>
+              <p>Review statuses and decide flagged cases below.</p>
+            </div>
+            <span class="record-count" id="record-count"></span>
+          </header>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Record</th><th>Category</th><th>Confidence</th><th>Status</th><th>Action</th></tr>
+              </thead>
+              <tbody id="records-list"></tbody>
+            </table>
+          </div>
+          <div class="empty-state hidden" id="empty-records">No records to show.</div>
+        </section>
+
+        <section class="panel activity-panel">
+          <header class="panel-heading">
+            <div><h2>Recent activity</h2><p>A short history of automated and reviewer actions.</p></div>
+          </header>
+          <ol class="activity-list" id="activity-list"></ol>
+          <div class="empty-state hidden" id="empty-activity">Activity will appear here as records are processed.</div>
+        </section>
+
+        <footer>Local mock data only · Isolated proof of concept</footer>
+      </main>
+    </div>
+
+    <div class="modal-backdrop hidden" id="modal-backdrop">
+      <section class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div id="modal-content"></div>
+      </section>
+    </div>
+    <script src="/assets/app.js" defer></script>
+  </body>
+</html>
